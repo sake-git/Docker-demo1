@@ -1,0 +1,26 @@
+<div>
+    <h1>Examination results 2021</h1>
+    <div class="innerDiv">
+        <label>Enter your Examination ID: </label>
+        <input type="text" #examid>
+        <input type="submit" value="Submit" (click)="getDetails(examid)"><br><br>
+    </div>
+    <div *ngIf="stud" id="detail">
+        <h3>{{stud.examId}}: {{stud.name}}</h3>
+        <p> <b>Hindi:</b> {{stud.result.hindi}}</p>
+        <p> <b>English: </b>{{stud.result.english}}</p>
+        <p> <b>History: </b> {{stud.result.history}}</p>
+        <p> <b>Geography: </b> {{stud.result.geography}}</p>
+        <p> <b>Science: </b> {{stud.result.science}}</p>
+        <p> <b>Maths:</b> {{stud.result.maths}}</p>
+    </div>
+
+    <div class="final" *ngIf="stud"> 
+        <p>Total Marks: {{total}} &nbsp;&nbsp;&nbsp;&nbsp; Percentage: {{percentage | percent}}</p>  
+    </div>
+
+    <div *ngIf="!stud" class="final">
+        {{message}}
+    </div>
+    
+</div>
